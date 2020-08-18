@@ -4,15 +4,11 @@ import * as actions from "@actions/ModalActions";
 
 // INITIAL STATE
 export interface IModalState {
-    modalVisible: boolean,
-    isNewSchedule: boolean,
     scheduleModalStartTime: Date;
     scheduleModalEndTime: Date;
 }
 
 export const initialModalState: IModalState = {
-    modalVisible: false,
-    isNewSchedule: true,
     scheduleModalStartTime: new Date(),
     scheduleModalEndTime: new Date()
 }
@@ -33,13 +29,6 @@ export const ModalReducer = (
         return {
             ...state,
             scheduleModalEndTime: action.payload
-        };
-    } 
-
-    if(action.type === getType(actions.setIsNewSchedule)) {
-        return {
-            ...state,
-            isNewSchedule: action.payload
         };
     } 
     return state;

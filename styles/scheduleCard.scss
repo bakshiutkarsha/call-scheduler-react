@@ -25,6 +25,7 @@
         margin-right: 20px;
         background: #e4a50e;
         color: #fff;
+        text-transform: capitalize;
         span{
             vertical-align: -webkit-baseline-middle;
             padding-top: 20px;
@@ -32,6 +33,8 @@
     }
     .telephone {
         font-family: 'Source Sans Pro ExtraLight';
+        margin-top: 5px;
+        opacity: 0.6;
         span{
             margin-left: 5px;
         }
@@ -55,26 +58,41 @@
 .blue{
     @include linear-gradient(rgba(73,155,234,1), rgba(32,124,229,1));
     color: #fff;
+    .initials{
+        background-color: rgba(32,124,229,1);
+    }
 }
 
 .orange{
-    @include linear-gradient(rgba(240,136,25,1), rgba(246,134,14,1) );
+    @include linear-gradient(rgb(247, 168, 84), rgba(246,134,14,1) );
     color: #fff;
+    .initials{
+        background-color: rgba(246,134,14,1);
+    }
 }
 
 .green{
     @include linear-gradient(rgba(164,179,87,1), rgba(117,137,12,1));
     color: #fff;
+    .initials{
+        background-color:  rgba(117,137,12,1);
+    }
 }
 
 .purple{
-    @include linear-gradient(rgba(181,34,140,1), rgba(193,70,161,1));
+    @include linear-gradient(rgb(236, 13, 177), rgba(181,34,140,1));
     color: #fff;
+    .initials{
+        background-color:rgba(181,34,140,1);
+    }
 }
 
 .red{
-    @include linear-gradient(rgba(255,105,41,1), rgba(254,72,16,1));
+    @include linear-gradient(rgb(252, 128, 76), rgba(254,72,16,1));
     color: #fff;
+    .initials{
+        background-color: rgba(254,72,16,1);
+    }
 }
 
 .box_shadow{

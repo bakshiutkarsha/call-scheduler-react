@@ -16,20 +16,19 @@ const calculateTime = (time: number): String => {
 const mapDispatchToProps = {
     setModalVisibility: ScheduleActions.setModalVisibility,
     setModalStartTime: ModalActions.setModalStartTime,
-    setModalEndTime: ModalActions.setModalEndTime,
-    setIsNewSchedule: ModalActions.setIsNewSchedule
+    setModalEndTime: ModalActions.setModalEndTime
 };
 
 const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDispatchToProps> = ({
     schedule,
     setModalStartTime,
     setModalEndTime,
-    setIsNewSchedule,
-    isNewSchedule,
     scheduleModalStartTime,
     scheduleModalEndTime
 }) => {
     const [isOpen, setIsopen] = React.useState<boolean>(false);
+    const [name, setName] = React.useState<string>("");
+    const [phoneNumber, setPhoneNumber] = React.useState<string>("");
 
     return <div>
         {    
@@ -48,26 +47,32 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                     setModalStartTime(startTime)
                     setModalEndTime(endTime)
                     setIsopen(true);
-                    setIsNewSchedule(schedule.filter((e) => {
+
+                    let matchingSchedule = schedule.filter((e) => {
                         return e.start_date?.getHours() == time
-                    } ).length == 0)
+                    })
+                    if(matchingSchedule.length > 0) {
+                        matchingSchedule.forEach(e => {
+                            setName(e.name == undefined? "": e.name)
+                            setPhoneNumber(e.phone_number == undefined? "": e.phone_number)
+                        });
+                    } else {
+                        setName("")
+                        setPhoneNumber("")
+                    }
                   }}>
                     <div className={styles.schedule_timer} key={time}>{time} {calculateTime(time)}</div>
                     <div className={styles.schedule_start_border}></div>
                     {schedule.filter((e) => {
-                        console.log('here')
-                        console.log(e.start_date?.getHours(), time)
                         return e.start_date?.getHours() == time
                     } ).map((e)=> {
-                        console.log('inside')
                         return <ScheduleInfoCard scheduleInfo={e}/>
                     })}
                     
                 </div>
             })
         }  
-        {console.log('IS OPEN', isOpen)}
-        <Modal value='modal' setIsOpenInParent ={setIsopen} isOpen={isOpen}/> 
+        <Modal value='modal' setIsOpenInParent ={setIsopen} isOpen={isOpen} savedName={name} savedPhoneNumber={phoneNumber}/> 
     </div>
 };
 
@@ -75,7 +80,6 @@ function mapStateToProps(state: IStore) {
     
     return {
       schedule: state.schedule.schedule,
-      isNewSchedule: state.modal.isNewSchedule,
       scheduleModalStartTime: state.modal.scheduleModalStartTime,
       scheduleModalEndTime: state.modal.scheduleModalEndTime,
     };
