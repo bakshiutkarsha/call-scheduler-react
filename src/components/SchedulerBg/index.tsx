@@ -47,11 +47,11 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                         const matchingSchedule = matchingSchedules[0]
                         setName(matchingSchedule.name == undefined? "": matchingSchedule.name)
                         setPhoneNumber(matchingSchedule.phone_number == undefined? "": matchingSchedule.phone_number)
-                        setIsNewSchedule(false)
+                        setIsNewSchedule(true)
                     } else {
                         setName("")
                         setPhoneNumber("")
-                        setIsNewSchedule(true)
+                        setIsNewSchedule(false)
                     }
                   }}>
                     <div className={styles.schedule_timer} key={time}>{getFormattedDate(getDateFromHour(time))}</div>
