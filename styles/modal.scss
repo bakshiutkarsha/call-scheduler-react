@@ -13,6 +13,8 @@
     -moz-box-shadow: 7px 7px 19px -16px #c5c5c5;
     box-shadow: 7px 7px 19px -16px #c5c5c5;
     font-family: 'Source Sans Pro';
+    animation-name: easeIn;
+    animation-duration: 0.5s;
     .modal_detail_wrapper{
         padding: 20px;
     }
@@ -65,3 +67,9 @@
   ::placeholder {
     font-family: 'Source Sans Pro';
   }
+
+  //ANIMATIONS
+@keyframes easeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

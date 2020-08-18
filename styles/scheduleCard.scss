@@ -11,9 +11,12 @@
     background: #ffb300;
     color: #b90010;
     padding: 10px;
-    display: flex;
     line-height: 1.4em;
     border-radius: 4px;
+    display: inline-block;
+    width: 95%;
+    animation-name: easeIn;
+    animation-duration: 0.5s;
     .initials{
         width: 40px;
         height: 40px;
@@ -26,6 +29,7 @@
         background: #e4a50e;
         color: #fff;
         text-transform: capitalize;
+        display: inline-block;
         span{
             vertical-align: -webkit-baseline-middle;
             padding-top: 20px;
@@ -33,65 +37,95 @@
     }
     .telephone {
         font-family: 'Source Sans Pro ExtraLight';
-        margin-top: 5px;
+        margin: 5px 0 0 10px;
         opacity: 0.6;
+        display: inline-block;
         span{
             margin-left: 5px;
         }
     }
 
     .time {
-        margin-left: 7px;
+        float: right;
+        padding-top: 5px;
     }
 
     .name {
-        margin-right: 10px;
-        border-right: 1px solid #b90010;
+        padding-right: 10px;
+        border-right: 1px solid #fff;
+        display: inline-block;
     }
 }
 
-.yellow{
-    @include linear-gradient(rgba(235,199,54,1), rgba(254,184,62,1));
-    color: #b90010;
-}
-
-.blue{
-    @include linear-gradient(rgba(73,155,234,1), rgba(32,124,229,1));
+.hour_10{
+    @include linear-gradient(rgb(142, 216, 216), #76CDCD);
     color: #fff;
     .initials{
-        background-color: rgba(32,124,229,1);
+        background-color:#76CDCD;
     }
 }
 
-.orange{
-    @include linear-gradient(rgb(247, 168, 84), rgba(246,134,14,1) );
+.hour_15{
+    @include linear-gradient(rgb(77, 108, 116), #26474E);
     color: #fff;
     .initials{
-        background-color: rgba(246,134,14,1);
+        background-color: #26474E;
     }
 }
 
-.green{
-    @include linear-gradient(rgba(164,179,87,1), rgba(117,137,12,1));
+.hour_13{
+    @include linear-gradient(rgb(172, 216, 198), #98D4BB );
     color: #fff;
     .initials{
-        background-color:  rgba(117,137,12,1);
+        background-color:#98D4BB;
     }
 }
 
-.purple{
-    @include linear-gradient(rgb(236, 13, 177), rgba(181,34,140,1));
+.hour_11{
+    @include linear-gradient(rgb(243, 154, 124),#F27348);
     color: #fff;
     .initials{
-        background-color:rgba(181,34,140,1);
+        background-color:  #F27348;
     }
 }
 
-.red{
-    @include linear-gradient(rgb(252, 128, 76), rgba(254,72,16,1));
+.hour_12{
+    @include linear-gradient(rgb(104, 221, 223), #2CCED2);
     color: #fff;
     .initials{
-        background-color: rgba(254,72,16,1);
+        background-color: #2CCED2;
+    }
+}
+
+.hour_14{
+    @include linear-gradient(rgb(253, 171, 162), #F9968B);
+    color: #ffffff;
+    .initials{
+        background-color: #F9968B;
+    }
+}
+
+.hour_7{
+    @include linear-gradient(rgb(152, 186, 233), #84A6D6);
+    color: #ffffff;
+    .initials{
+        background-color: #84A6D6;
+    }
+}
+
+.hour_8{
+    @include linear-gradient(rgb(97, 148, 196), #4382BB);
+    color: #ffffff;
+    .initials{
+        background-color: #4382BB;
+    }
+}
+
+.hour_9{
+    @include linear-gradient(rgb(179, 110, 169), #A15D98);
+    color: #ffffff;
+    .initials{
+        background-color: #A15D98;
     }
 }
 
@@ -101,5 +135,9 @@
     box-shadow: 11px 10px 14px -3px rgba(204,204,204,0.86); 
 }
 
-
+//ANIMATIONS
+@keyframes easeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 

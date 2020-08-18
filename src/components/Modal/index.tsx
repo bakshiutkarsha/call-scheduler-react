@@ -5,7 +5,7 @@ import { IStore, IScheduleState, IModalState } from "@reducers";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhoneSquareAlt, faCalendarAlt, faClock, faTimes } from '@fortawesome/free-solid-svg-icons';
-import moment from 'moment';
+import { getFormattedDate } from "../../util";
 
 type ModalProps = {
   isOpen: boolean;
@@ -32,7 +32,6 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(isOpen);
 
   React.useEffect(() => {
-    console.log('COMING', isModalOpen)
     setIsModalOpen(isOpen)
   }, [isOpen || isModalOpen])
 
@@ -68,7 +67,7 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
           }} placeholder='Add Phone Number' />
       </div>
       <div>
-        <p><FontAwesomeIcon icon={faClock} />Time: {`${moment(scheduleModalStartTime).format('h:mm a')} to ${moment(scheduleModalEndTime).format('h:mm a')}`}</p>
+        <p><FontAwesomeIcon icon={faClock} />Time: {`${getFormattedDate(scheduleModalStartTime)} to ${getFormattedDate(scheduleModalEndTime)}`}</p>
       </div>
       <button onClick={() => {
         addEditSchedule({

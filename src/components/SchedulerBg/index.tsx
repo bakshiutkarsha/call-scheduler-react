@@ -7,10 +7,10 @@ import Modal from "@components/Modal";
 import ScheduleInfoCard from '@components/Card';
 import * as ModalActions from "@actions/ModalActions";
 import * as ScheduleActions from "@actions/ScheduleActions";
+import {getFormattedDate, getDateFromHour } from "../../util";
 
-
-const calculateTime = (time: number): String => {
-    return time >= 8 && time < 12 ? "am" : "pm";
+const getTimeSlots = (): number[] => {
+    return [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 };
 
 const mapDispatchToProps = {
@@ -32,36 +32,28 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
 
     return <div>
         {    
-            [8, 9, 10, 11, 12, 1, 2, 3, 4, 5].map( time => {
+            getTimeSlots().map( time => {
                 return <div className={styles.schedule_cntr} key={time} onClick={(e) => {
-                    let startTime = new Date()
-                    startTime.setHours(time)
-                    startTime.setMinutes(0)
-                    startTime.setSeconds(0)
-
-                    let endTime = new Date()
-                    endTime.setHours(time+1)
-                    endTime.setMinutes(0)
-                    endTime.setSeconds(0)
+                    let startTime = getDateFromHour(time)
+                    let endTime = getDateFromHour(time + 1)
 
                     setModalStartTime(startTime)
                     setModalEndTime(endTime)
                     setIsopen(true);
 
-                    let matchingSchedule = schedule.filter((e) => {
+                    let matchingSchedules = schedule.filter((e) => {
                         return e.start_date?.getHours() == time
                     })
-                    if(matchingSchedule.length > 0) {
-                        matchingSchedule.forEach(e => {
-                            setName(e.name == undefined? "": e.name)
-                            setPhoneNumber(e.phone_number == undefined? "": e.phone_number)
-                        });
+                    if(matchingSchedules.length > 0) {
+                        let matchingSchedule = matchingSchedules[0]
+                        setName(e.name == undefined? "": e.name)
+                        setPhoneNumber(e.phone_number == undefined? "": e.phone_number)
                     } else {
                         setName("")
                         setPhoneNumber("")
                     }
                   }}>
-                    <div className={styles.schedule_timer} key={time}>{time} {calculateTime(time)}</div>
+                    <div className={styles.schedule_timer} key={time}>{getFormattedDate(getDateFromHour(time))}</div>
                     <div className={styles.schedule_start_border}></div>
                     {schedule.filter((e) => {
                         return e.start_date?.getHours() == time
