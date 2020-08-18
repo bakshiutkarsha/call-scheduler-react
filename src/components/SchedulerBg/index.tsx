@@ -45,9 +45,9 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                         return e.start_date?.getHours() == time
                     })
                     if(matchingSchedules.length > 0) {
-                        let matchingSchedule = matchingSchedules[0]
-                        setName(e.name == undefined? "": e.name)
-                        setPhoneNumber(e.phone_number == undefined? "": e.phone_number)
+                        const matchingSchedule = matchingSchedules[0]
+                        setName(matchingSchedule.name == undefined? "": matchingSchedule.name)
+                        setPhoneNumber(matchingSchedule.phone_number == undefined? "": matchingSchedule.phone_number)
                     } else {
                         setName("")
                         setPhoneNumber("")

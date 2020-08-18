@@ -44,30 +44,33 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
   }, [savedPhoneNumber])
 
   return isModalOpen && <div className={modalStyle.modal_cntr}>
-    <p> <FontAwesomeIcon icon={faCalendarAlt} />Schedule: </p>
-    <div onClick={() => {
-      setIsModalOpen(false)
-      setIsOpenInParent(false)
-    }}>
-      <FontAwesomeIcon icon={faTimes} />
-    </div>
+    <p className={modalStyle.schedule_head}> <FontAwesomeIcon icon={faCalendarAlt} className={modalStyle.font_padding}/>Schedule: 
+      <span onClick={() => {
+        setIsModalOpen(false)
+        setIsOpenInParent(false)
+      }}>
+        <FontAwesomeIcon className={modalStyle.font_padding} icon={faTimes} className={modalStyle.font_float}/>
+      </span>
+    </p>
+    
     <div className={modalStyle.modal_detail_wrapper}>
       <div className={modalStyle.input_cntr}>
-        <FontAwesomeIcon icon={faUser} />
+        <FontAwesomeIcon icon={faUser} className={modalStyle.font_input}/>
         <input type='text' value={name}
           onChange={(e) => {
             setName(e.target.value)
           }} placeholder='Add Name' />
       </div>
       <div className={modalStyle.input_cntr}>
-        <FontAwesomeIcon icon={faPhoneSquareAlt} />
+        <FontAwesomeIcon icon={faPhoneSquareAlt}className={modalStyle.font_input} />
         <input type='text' value={phoneNumber}
           onChange={(e) => {
             setPhoneNumber(e.target.value)
-          }} placeholder='Add Phone Number' />
+          }} placeholder='Add Phone Number' 
+          maxLength="12"/>
       </div>
       <div>
-        <p><FontAwesomeIcon icon={faClock} />Time: {`${getFormattedDate(scheduleModalStartTime)} to ${getFormattedDate(scheduleModalEndTime)}`}</p>
+        <p><FontAwesomeIcon icon={faClock} className={modalStyle.font_padding}/>Time: {`${getFormattedDate(scheduleModalStartTime)} to ${getFormattedDate(scheduleModalEndTime)}`}</p>
       </div>
       <button onClick={() => {
         addEditSchedule({

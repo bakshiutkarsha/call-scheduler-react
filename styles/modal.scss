@@ -21,12 +21,13 @@
     .input_cntr{
         margin-bottom: 30px;
         color: #6d6d6d;
+        position: relative;
         input{
             width: 100%;
             border: 0;
             border-bottom: 1px solid #e0e0e0;
             background: transparent;
-            padding: 10px;
+            padding: 10px 10px 10px 25px;
             box-sizing: border-box;
             outline: none;
             font-size: 16px;
@@ -53,6 +54,12 @@
         &:last-child{
             background-color: #e4f6ff;
         }
+        &.schedule_head{
+            margin: 0;
+            font-size: 20px;
+            word-spacing: 2px;
+            padding-left: 10px;
+        }
     }
 }
 
@@ -68,6 +75,18 @@
     font-family: 'Source Sans Pro';
   }
 
+  .font_padding{
+      padding-right: 5px;
+  }
+
+  .font_input{
+    position: absolute;
+    bottom: 33%;
+   }
+
+   .font_float{
+    float: right;
+   }
   //ANIMATIONS
 @keyframes easeIn {
     from {opacity: 0;}

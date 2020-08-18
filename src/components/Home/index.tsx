@@ -3,7 +3,6 @@ import * as React from "react";
 // import { Store } from "redux";
 
 
-
 const HomePage: React.FC = () => {
   return <div>Kilo</div>;
 };
