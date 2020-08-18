@@ -1,0 +1,8 @@
+@mixin linear-gradient($lightColor, $darkColor) {
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, $lightColor), color-stop(17%, $lightColor), color-stop(69%, $darkColor), color-stop(100%, $darkColor));
+    background: -webkit-linear-gradient(-45deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    background: -o-linear-gradient(-45deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    background: -ms-linear-gradient(-45deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    background: linear-gradient(135deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebc736', endColorstr='#feb83e', GradientType=1 );
+}

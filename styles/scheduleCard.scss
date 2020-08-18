@@ -1,0 +1,87 @@
+@mixin linear-gradient($lightColor, $darkColor) {
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, $lightColor), color-stop(17%, $lightColor), color-stop(69%, $darkColor), color-stop(100%, $darkColor));
+    background: -webkit-linear-gradient(-45deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    background: -o-linear-gradient(-45deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    background: -ms-linear-gradient(-45deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    background: linear-gradient(135deg, $lightColor 0%, $lightColor 17%, $darkColor 69%, $darkColor 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebc736', endColorstr='#feb83e', GradientType=1 );
+}
+.schedule_card_cntr{
+    font-family: 'Source Sans Pro SemiBold';
+    background: #ffb300;
+    color: #b90010;
+    padding: 10px;
+    display: flex;
+    line-height: 1.4em;
+    border-radius: 4px;
+    .initials{
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        color: #000;
+        border-radius: 20px;
+        text-align: center;
+        vertical-align: middle;
+        margin-right: 20px;
+        background: #e4a50e;
+        color: #fff;
+        span{
+            vertical-align: -webkit-baseline-middle;
+            padding-top: 20px;
+        }
+    }
+    .telephone {
+        font-family: 'Source Sans Pro ExtraLight';
+        span{
+            margin-left: 5px;
+        }
+    }
+
+    .time {
+        margin-left: 7px;
+    }
+
+    .name {
+        margin-right: 10px;
+        border-right: 1px solid #b90010;
+    }
+}
+
+.yellow{
+    @include linear-gradient(rgba(235,199,54,1), rgba(254,184,62,1));
+    color: #b90010;
+}
+
+.blue{
+    @include linear-gradient(rgba(73,155,234,1), rgba(32,124,229,1));
+    color: #fff;
+}
+
+.orange{
+    @include linear-gradient(rgba(240,136,25,1), rgba(246,134,14,1) );
+    color: #fff;
+}
+
+.green{
+    @include linear-gradient(rgba(164,179,87,1), rgba(117,137,12,1));
+    color: #fff;
+}
+
+.purple{
+    @include linear-gradient(rgba(181,34,140,1), rgba(193,70,161,1));
+    color: #fff;
+}
+
+.red{
+    @include linear-gradient(rgba(255,105,41,1), rgba(254,72,16,1));
+    color: #fff;
+}
+
+.box_shadow{
+    -webkit-box-shadow: 11px 10px 14px -3px rgba(204,204,204,0.86);
+    -moz-box-shadow: 11px 10px 14px -3px rgba(204,204,204,0.86);
+    box-shadow: 11px 10px 14px -3px rgba(204,204,204,0.86); 
+}
+
+
+

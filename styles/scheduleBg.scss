@@ -1,0 +1,22 @@
+.schedule_cntr{
+    font-family: 'Source Sans Pro';
+    padding: 30px;
+    cursor: pointer;
+    .wrapper{
+        display: flex;
+    }
+    .schedule_timer{
+        font-family: 'Source Sans Pro';
+        display: inline-flex;
+        width: 50px;
+        color: #929191;
+    }
+    .schedule_start_border{
+        display: inline-flex;
+        border-bottom: 2px solid #efefef;
+        height: 2px;
+        width: 100%;
+        padding: 4px;
+        margin: 0 20px;
+    }
+}

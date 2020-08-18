@@ -1,0 +1,67 @@
+.modal_cntr{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    // padding: 30px;
+    width: 450px;
+    height: 500px;
+    border-radius: 4px;
+    border: 1px solid #f3f3f3;
+    -webkit-box-shadow: 7px 7px 19px -16px #c5c5c5;
+    -moz-box-shadow: 7px 7px 19px -16px #c5c5c5;
+    box-shadow: 7px 7px 19px -16px #c5c5c5;
+    font-family: 'Source Sans Pro';
+    .modal_detail_wrapper{
+        padding: 20px;
+    }
+    .input_cntr{
+        margin-bottom: 30px;
+        color: #6d6d6d;
+        input{
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #e0e0e0;
+            background: transparent;
+            padding: 10px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 16px;
+            &:focus{
+                border-bottom: 2px solid rgb(3, 155, 229);
+            }
+        }
+    }
+    button{
+        position: absolute;
+        bottom: 10px;
+        border: 0;
+        right: 20px;
+        width: 40%;
+        background: rgb(3, 155, 229);
+        padding: 15px;
+        color: #fff;
+        border-radius: 4px;
+    }
+    p{
+        background: #f1f3f4;
+        padding: 15px;
+        color: #6d6d6d;
+        &:last-child{
+            background-color: #e4f6ff;
+        }
+    }
+}
+
+::-webkit-input-placeholder { /* Edge */
+    font-family: 'Source Sans Pro';
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: 'Source Sans Pro';
+  }
+  
+  ::placeholder {
+    font-family: 'Source Sans Pro';
+  }
