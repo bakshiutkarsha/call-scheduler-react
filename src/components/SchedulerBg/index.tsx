@@ -7,7 +7,7 @@ import Modal from "@components/Modal";
 import ScheduleInfoCard from '@components/Card';
 import * as ModalActions from "@actions/ModalActions";
 import * as ScheduleActions from "@actions/ScheduleActions";
-import {getFormattedDate, getDateFromHour } from "../../util";
+import {getFormattedDate, getDateFromHour, castToDate } from "../../util";
 
 const getTimeSlots = (): number[] => {
     return [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
@@ -41,7 +41,7 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                     setIsopen(true);
 
                     let matchingSchedules = schedule.filter((e) => {
-                        return e.start_date?.getHours() == time
+                        return castToDate(e.start_date).getHours() == time
                     })
                     if(matchingSchedules.length > 0) {
                         const matchingSchedule = matchingSchedules[0]
@@ -57,7 +57,7 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                     <div className={styles.schedule_timer} key={time}>{getFormattedDate(getDateFromHour(time))}</div>
                     <div className={styles.schedule_start_border}></div>
                     {schedule.filter((e) => {
-                        return e.start_date?.getHours() == time
+                        return castToDate(e.start_date).getHours() == time
                     } ).map((e)=> {
                         return <ScheduleInfoCard scheduleInfo={e}/>
                     })}

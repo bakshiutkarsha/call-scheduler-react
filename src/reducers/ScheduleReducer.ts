@@ -3,6 +3,7 @@ import { ActionType, getType } from "typesafe-actions";
 import * as actions from "@actions/ScheduleActions";
 
 import { ISchedule } from "@models/Schedule";
+import { castToDate } from "../util";
 
 // INITIAL STATE
 export interface IScheduleState {
@@ -22,10 +23,10 @@ export const ScheduleReducer = (
         let newSchedule = state.schedule.slice()
 
         if(newSchedule.filter((e) => {
-            return e.start_date?.getHours() == action.payload.start_date?.getHours()
+            return castToDate(e.start_date).getHours() == castToDate(action.payload.start_date).getHours()
         }).length > 0) {
             newSchedule.map((e) => {
-                if(e.start_date?.getHours() == action.payload.start_date?.getHours()) {
+                if(castToDate(e.start_date).getHours() == castToDate(action.payload.start_date).getHours()) {
                     e.name = action.payload.name
                     e.phone_number = action.payload.phone_number
                 }

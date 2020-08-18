@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import scheduleCardStyle from "../../../styles/ScheduleCard.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
-import { getFormattedDate } from "../../util";
+import { getFormattedDate, castToDate } from "../../util";
 
 type ScheduleProps = {
     scheduleInfo: ISchedule;
@@ -16,7 +16,7 @@ const getInitials = (name): string => {
 }
 
 const ScheduleInfoCard: React.FC <ScheduleProps>  = ({scheduleInfo}) => {
-    const hours = scheduleInfo.start_date?.getHours();
+    const hours = castToDate(scheduleInfo.start_date).getHours();
     return <div className={`${scheduleCardStyle.schedule_card_cntr} ${scheduleCardStyle[`hour_${hours}`]} ${scheduleCardStyle.box_shadow}`} >
             <div className={scheduleCardStyle.initials}><span>{getInitials(scheduleInfo.name)}</span></div>
             <div className={scheduleCardStyle.name}>{scheduleInfo.name}</div>

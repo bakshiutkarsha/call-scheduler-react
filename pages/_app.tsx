@@ -1,9 +1,13 @@
+//@ts-ignore
+
 import * as React from "react";
-import nextReduxWrapper from "next-redux-wrapper";
 import { default as App } from "next/app";
 import { Provider } from "react-redux";
 import { Store } from "redux";
 import store from "@redux/Store";
+
+import withRedux from 'next-redux-wrapper';
+import { PersistGate } from 'redux-persist/integration/react';
 
 interface IProps extends React.Props<{}> {
   isMobileFromSSR: boolean;
@@ -27,15 +31,13 @@ class GlobalApp extends App<IProps, {}, {}> {
     return (
       <>
         <Provider store={store}>
-          {/* MuiThemeProvider makes the theme available down the React
-              tree thanks to React context. */}
-          {/* Pass pageContext to the _document though the renderPage enhancer
-                to render collected styles on server-side. */}
-              <Component {...pageProps} />
-        </Provider>
+        <PersistGate persistor={(store as any).__PERSISTOR} loading={null}>
+          <Component {...pageProps} />
+        </PersistGate>
+      </Provider>
       </>
     );
   }
 }
 
-export default nextReduxWrapper(store)(GlobalApp);
+export default withRedux(store)(GlobalApp);
