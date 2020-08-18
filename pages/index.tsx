@@ -1,9 +1,11 @@
 import * as React from "react";
-import Home from "@components/SchedulerBg";
+import Header from "@components/Header";
+import SchedulerBg from "@components/SchedulerBg";
 
 const IndexPage: React.FC = () => {
   return <div>
-        <Home />
+        <Header/>
+        <SchedulerBg />
   </div>
 };
 

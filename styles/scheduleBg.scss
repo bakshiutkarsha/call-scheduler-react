@@ -19,7 +19,25 @@
         margin: 0 20px;
     }
 }
+.schedule_bg_wrapper{
+    padding: 20px;
+}
 
 body{
     background: #f1eeee;
+    margin: 0;
 }
+
+//MEDIA QUERIES
+@media only screen and (max-width: 600px) {
+    .schedule_cntr{
+        
+        .schedule_timer{
+            width: 20%;
+        }
+        .schedule_start_border{
+            width: 75%;
+            margin: 0;
+        }
+    }
+  }

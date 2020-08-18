@@ -50,7 +50,7 @@
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "strict": false,
     "target": "esnext"
   },

@@ -143,3 +143,16 @@
     to {opacity: 1;}
 }
 
+//MEDIA QUERIES
+@media only screen and (max-width: 600px) {
+    .schedule_card_cntr{
+        margin: 0;
+        height: 60px;
+        .time{
+            margin-left: 18%;
+            padding: 0;
+            float: none;
+        }
+    }
+}
+

@@ -22,15 +22,13 @@ const mapDispatchToProps = {
 const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDispatchToProps> = ({
     schedule,
     setModalStartTime,
-    setModalEndTime,
-    scheduleModalStartTime,
-    scheduleModalEndTime
+    setModalEndTime
 }) => {
     const [isOpen, setIsopen] = React.useState<boolean>(false);
     const [name, setName] = React.useState<string>("");
     const [phoneNumber, setPhoneNumber] = React.useState<string>("");
 
-    return <div>
+    return <div className={styles.schedule_bg_wrapper}>
         {    
             getTimeSlots().map( time => {
                 return <div className={styles.schedule_cntr} key={time} onClick={(e) => {

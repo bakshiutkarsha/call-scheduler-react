@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as React from "react";
 import modalStyle from "@styles/modal.scss";
 import * as ScheduleActions from "@actions/ScheduleActions";
@@ -11,6 +12,7 @@ type ModalProps = {
   isOpen: boolean;
   savedName: string;
   savedPhoneNumber: string;
+  setIsOpenInParent: (val: boolean) => void
 }
 
 const mapDispatchToProps = {
@@ -49,7 +51,7 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
         setIsModalOpen(false)
         setIsOpenInParent(false)
       }}>
-        <FontAwesomeIcon className={modalStyle.font_padding} icon={faTimes} className={modalStyle.font_float}/>
+        <FontAwesomeIcon className={`${modalStyle.font_padding} ${modalStyle.font_float}`} icon={faTimes}/>
       </span>
     </p>
     
@@ -67,7 +69,7 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
           onChange={(e) => {
             setPhoneNumber(e.target.value)
           }} placeholder='Add Phone Number' 
-          maxLength="12"/>
+          maxLength={12}/>
       </div>
       <div>
         <p><FontAwesomeIcon icon={faClock} className={modalStyle.font_padding}/>Time: {`${getFormattedDate(scheduleModalStartTime)} to ${getFormattedDate(scheduleModalEndTime)}`}</p>
