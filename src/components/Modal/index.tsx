@@ -12,7 +12,9 @@ type ModalProps = {
   isOpen: boolean;
   savedName: string;
   savedPhoneNumber: string;
-  setIsOpenInParent: (val: boolean) => void
+  isNewSchedule: string;
+  setIsOpenInParent: (val: boolean) => void;
+  setIsNewSchedule: (val: boolean) => void;
 }
 
 const mapDispatchToProps = {
@@ -23,6 +25,8 @@ const mapDispatchToProps = {
 const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeof mapDispatchToProps> = ({
   addEditSchedule,
   isOpen,
+  isNewSchedule,
+  setIsNewSchedule,
   savedName,
   savedPhoneNumber,
   setIsOpenInParent,
@@ -38,11 +42,19 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
   }, [isOpen || isModalOpen])
 
   React.useEffect(() => {
-    setName(savedName)
+    if(isNewSchedule) {
+      setName(savedName)
+    } else {
+      setName("")
+    }
   }, [savedName])
 
   React.useEffect(() => {
-    setPhoneNumber(savedPhoneNumber)
+    if(isNewSchedule) {
+      setPhoneNumber(savedPhoneNumber)
+    } else {
+      setPhoneNumber("")
+    }
   }, [savedPhoneNumber])
 
   return isModalOpen && <div className={modalStyle.modal_cntr}>

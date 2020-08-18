@@ -27,11 +27,12 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
     const [isOpen, setIsopen] = React.useState<boolean>(false);
     const [name, setName] = React.useState<string>("");
     const [phoneNumber, setPhoneNumber] = React.useState<string>("");
+    const [isNewSchedule, setIsNewSchedule] = React.useState<string>(false);
 
-    return <div className={styles.schedule_bg_wrapper}>
+    return <div className={styles.schedule_bg_wrapper} >
         {    
             getTimeSlots().map( time => {
-                return <div className={styles.schedule_cntr} key={time} onClick={(e) => {
+                return <div className={styles.schedule_cntr} key={time} onClick={() => {
                     let startTime = getDateFromHour(time)
                     let endTime = getDateFromHour(time + 1)
 
@@ -46,9 +47,11 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                         const matchingSchedule = matchingSchedules[0]
                         setName(matchingSchedule.name == undefined? "": matchingSchedule.name)
                         setPhoneNumber(matchingSchedule.phone_number == undefined? "": matchingSchedule.phone_number)
+                        setIsNewSchedule(true)
                     } else {
                         setName("")
                         setPhoneNumber("")
+                        setIsNewSchedule(false)
                     }
                   }}>
                     <div className={styles.schedule_timer} key={time}>{getFormattedDate(getDateFromHour(time))}</div>
@@ -62,7 +65,7 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                 </div>
             })
         }  
-        <Modal value='modal' setIsOpenInParent ={setIsopen} isOpen={isOpen} savedName={name} savedPhoneNumber={phoneNumber}/> 
+        <Modal value='modal' setIsOpenInParent ={setIsopen}  isNewSchedule={isNewSchedule} isOpen={isOpen} savedName={name} savedPhoneNumber={phoneNumber}/> 
     </div>
 };
 

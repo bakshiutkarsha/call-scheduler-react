@@ -16,7 +16,6 @@ const getInitials = (name): string => {
 }
 
 const ScheduleInfoCard: React.FC <ScheduleProps>  = ({scheduleInfo}) => {
-    console.log(scheduleInfo.start_date+" "+ scheduleInfo.start_date?.getHours())
     const hours = scheduleInfo.start_date?.getHours();
     return <div className={`${scheduleCardStyle.schedule_card_cntr} ${scheduleCardStyle[`hour_${hours}`]} ${scheduleCardStyle.box_shadow}`} >
             <div className={scheduleCardStyle.initials}><span>{getInitials(scheduleInfo.name)}</span></div>
