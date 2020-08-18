@@ -8,6 +8,6 @@ module.exports = withPlugins([
             importLoaders: 1,
             localIdentName: "[local]___[hash:base64:5]",
         },
-        includePaths: ["./styles/mixins.*.scss"]
+        includePaths: ["./styles/mixins.*.scss", "./styles/.*.scss"]
     })],
 ]);

@@ -1,6 +1,6 @@
 // @ts-ignore
 import * as React from "react";
-import modalStyle from "@styles/modal.scss";
+import modalStyle from "../../../styles/modal.scss";
 import * as ScheduleActions from "@actions/ScheduleActions";
 import { IStore, IScheduleState, IModalState } from "@reducers";
 import { connect } from "react-redux";
@@ -14,7 +14,6 @@ type ModalProps = {
   savedPhoneNumber: string;
   isNewSchedule: string;
   setIsOpenInParent: (val: boolean) => void;
-  setIsNewSchedule: (val: boolean) => void;
 }
 
 const mapDispatchToProps = {
@@ -26,7 +25,6 @@ const SchedulerModal: React.FC<IScheduleState & IModalState & ModalProps & typeo
   addEditSchedule,
   isOpen,
   isNewSchedule,
-  setIsNewSchedule,
   savedName,
   savedPhoneNumber,
   setIsOpenInParent,

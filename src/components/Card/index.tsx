@@ -2,7 +2,7 @@ import * as React from "react";
 import { IStore, IScheduleState } from "@reducers";
 import {ISchedule} from "@models/Schedule"
 import { connect } from "react-redux";
-import scheduleCardStyle from "@styles/ScheduleCard.scss";
+import scheduleCardStyle from "../../../styles/ScheduleCard.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { getFormattedDate } from "../../util";

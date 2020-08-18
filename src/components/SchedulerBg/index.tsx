@@ -27,7 +27,7 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
     const [isOpen, setIsopen] = React.useState<boolean>(false);
     const [name, setName] = React.useState<string>("");
     const [phoneNumber, setPhoneNumber] = React.useState<string>("");
-    const [isNewSchedule, setIsNewSchedule] = React.useState<string>(false);
+    const [isNewSchedule, setIsNewSchedule] = React.useState<boolean>(false);
 
     return <div className={styles.schedule_bg_wrapper} >
         {    
@@ -47,11 +47,11 @@ const SchedulerBackground: React.FC<IScheduleState & IModalState & typeof mapDis
                         const matchingSchedule = matchingSchedules[0]
                         setName(matchingSchedule.name == undefined? "": matchingSchedule.name)
                         setPhoneNumber(matchingSchedule.phone_number == undefined? "": matchingSchedule.phone_number)
-                        setIsNewSchedule(true)
+                        setIsNewSchedule(false)
                     } else {
                         setName("")
                         setPhoneNumber("")
-                        setIsNewSchedule(false)
+                        setIsNewSchedule(true)
                     }
                   }}>
                     <div className={styles.schedule_timer} key={time}>{getFormattedDate(getDateFromHour(time))}</div>
